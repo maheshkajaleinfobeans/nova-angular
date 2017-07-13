@@ -1,0 +1,42 @@
+
+<h2>Top Albums</h2>
+
+  <div class="plans">
+    <div class="plan" *ngFor="let item of top">
+      <h2 class="plan-title"><img src="{{item.topAlbumImage}}"></h2>
+      <ul class="plan-features">
+        <li><strong>{{item.artisttext}}</strong></li>
+        <li><strong>{{item.albumtitle}}</strong> </li>
+      </ul>
+    </div>
+    </div>
+
+
+<!-- <table border="1" >
+<tr>
+<td *ngFor="let item of top"><img src="{{item.topAlbumImage}}"><br>
+{{item.artisttext}}<br>{{item.albumtitle}} 
+</td>
+</tr>
+</table> -->
+
+<h2>Top Singles</h2>
+<table border="1">
+<tr>
+<td *ngFor="let item of single">
+{{item.songtitle}}<br>{{item.artisttext}} 
+</td>
+</tr>
+</table>
+
+
+<h2>Featured Artists & Composers</h2>
+<table border="1" >
+<tr>
+<td *ngFor="let item of featured"><img src={{item.artistImage}} alt="Album Cover Art"><br>
+{{item.artistName}}
+</td>
+</tr>
+</table>
+
+  
