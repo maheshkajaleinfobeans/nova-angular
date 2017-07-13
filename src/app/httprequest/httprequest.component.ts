@@ -20,15 +20,13 @@ export class HttprequestComponent implements OnInit{
   constructor(private http: Http) {}
 
   ngOnInit() {
-  // this.getToken();
-  this.getTopAlbum();
-  this.getSingleAlbum();
-  this.getFeaturedAlbum();
+  this.getToken();
   }
 
   
-  getTopAlbum() {
-    return this.http.get('http://127.0.0.1:8000/top-albums/us')
+  getTopAlbum(token) {
+    const headers = new Headers({'Authorization': 'Bearer ' +token});
+    return this.http.get('http://127.0.0.1:8000/top-albums/us',{headers: headers})
   .toPromise()
   .then(response => {
     this.top = response.json();
@@ -37,20 +35,21 @@ export class HttprequestComponent implements OnInit{
   .catch(this.handleError);
   }
   
-  getSingleAlbum() {
-    return this.http.get('http://127.0.0.1:8000/top-singles/us')
+  getSingleAlbum(token) {
+    const headers = new Headers({'Authorization': 'Bearer ' +token});
+    return this.http.get('http://127.0.0.1:8000/top-singles/us',{headers: headers})
   .toPromise()
   .then(response => {
     this.single = response.json();
-    console.log(response.json());
     }
     )
   .catch(this.handleError);
   }
   
   
-  getFeaturedAlbum() {
-    return this.http.get('http://127.0.0.1:8000/featured-artist/us')
+  getFeaturedAlbum(token) {
+    const headers = new Headers({'Authorization': 'Bearer ' +token});
+    return this.http.get('http://127.0.0.1:8000/featured-artist/us',{headers: headers})
   .toPromise()
   .then(response => {
     this.featured = response.json();
@@ -65,7 +64,6 @@ export class HttprequestComponent implements OnInit{
   }
 
   getToken() {
-    console.log("hello");
     return this.http.post('http://127.0.0.1:8000/oauth/v2/token',
       {
       grant_type: 'password',
@@ -78,7 +76,10 @@ export class HttprequestComponent implements OnInit{
    .toPromise()
     .then(response => {
     this.token = response.json();
-    console.log(response.json());}
+    this.getTopAlbum(this.token.access_token);
+    this.getSingleAlbum(this.token.access_token);
+    this.getFeaturedAlbum(this.token.access_token);
+    }
     )
   .catch(this.handleError);
   }
