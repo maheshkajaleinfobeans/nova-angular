@@ -188,19 +188,6 @@ body {
     height: 39px;
     position: relative;
 }
-table {
-    width: 120px;
-}
-
-table tr td {
-    width: 50px;
-    word-wrap: break-word;
-}
-
-table tr td {
-    display: inline-block;
-    margin-top: 2px;
-}
 h2{
 font-size: 23px;
 font-weight: bold;  

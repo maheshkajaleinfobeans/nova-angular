@@ -26,7 +26,7 @@
     <div class="plan" *ngFor="let item of featured">
       <h2 class="plan-title"><img src="{{item.artistImage}}" style="width: 100% !important;"></h2>
       <ul class="plan-features">
-        <li><strong><a href="#">{{item.artistName | truncate : 25 : '....' }}</a></strong></li>
+        <li><strong><a href="#">{{item.artistName | truncate : 20 : '....' }}</a></strong></li>
       </ul>
     </div>
     </div>
