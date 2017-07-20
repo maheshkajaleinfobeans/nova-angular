@@ -1,8 +1,10 @@
 import { Router } from '@angular/router';
-import { Injectable } from '@angular/core';
+import { Injectable,Inject } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
+import {APP_CONFIG} from '../config/app.config';
+import {IAppConfig} from '../config/iapp.config';
 
 @Injectable()
 export class HomepageService {
@@ -12,11 +14,11 @@ export class HomepageService {
   private featured;
   private token ='test';
   private headers = new Headers({'Authorization': 'Bearer ' + this.token});
-  private apiUrl = 'http://127.0.0.1:8000';
-  constructor(private router: Router,private http: Http) { }
+
+  constructor(private router: Router,private http: Http,@Inject(APP_CONFIG) private appConfig: IAppConfig) { }
 
   getTopAlbum() {
-    return this.http.get(this.apiUrl+'/top-albums/us', {headers: this.headers})
+    return this.http.get(this.appConfig.apiUrl+'/top-albums/us', {headers: this.headers})
   .toPromise()
   .then(response => {
     this.top = response.json();
@@ -26,7 +28,7 @@ export class HomepageService {
   }
   
   getSingleAlbum() {
-    return this.http.get(this.apiUrl+'/top-singles/us',{headers: this.headers})
+    return this.http.get(this.appConfig.apiUrl+'/top-singles/us',{headers: this.headers})
   .toPromise()
   .then(response => {
     this.single = response.json();
@@ -37,7 +39,7 @@ export class HomepageService {
   
   
   getFeaturedAlbum() {
-    return this.http.get(this.apiUrl+'/featured-artist/us',{headers: this.headers})
+    return this.http.get(this.appConfig.apiUrl+'/featured-artist/us',{headers: this.headers})
   .toPromise()
   .then(response => {
     this.featured = response.json();
