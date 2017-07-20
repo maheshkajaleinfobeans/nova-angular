@@ -10,6 +10,7 @@ import { TopFeaturedComponent } from './homepage/top-featured/top-featured.compo
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ArtistComponent } from './artist/artist.component';
+import {APP_CONFIG, AppConfig} from './config/app.config';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,9 @@ import { ArtistComponent } from './artist/artist.component';
     HttpModule,
     AppRoutingModule 
   ],
-  providers: [],
+  providers: [
+    {provide: APP_CONFIG, useValue: AppConfig}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
