@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HttprequestComponent } from './httprequest/httprequest.component';
-
+import { HomepageComponent } from './homepage/homepage.component';
+import { ArtistComponent } from './artist/artist.component';
 
 const appRoutes: Routes = [
    // { path: '', redirectTo: '/getresponse', pathMatch: 'full' },
-  { path: '', component: HttprequestComponent },
+  { path: '', component: HomepageComponent },
+  { path: 'artist', component: ArtistComponent }
 ];
 
 @NgModule({

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HttprequestComponent } from './httprequest.component';
+import { TopAlbumsComponent } from './top-albums.component';
 
-describe('HttprequestComponent', () => {
-  let component: HttprequestComponent;
-  let fixture: ComponentFixture<HttprequestComponent>;
+describe('TopAlbumsComponent', () => {
+  let component: TopAlbumsComponent;
+  let fixture: ComponentFixture<TopAlbumsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HttprequestComponent ]
+      declarations: [ TopAlbumsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HttprequestComponent);
+    fixture = TestBed.createComponent(TopAlbumsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
