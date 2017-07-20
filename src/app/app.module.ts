@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HttprequestComponent } from './httprequest/httprequest.component';
 import { AppRoutingModule } from './app-routing.module';
 import { TruncatePipe } from 'angular2-truncate';
+import {APP_CONFIG, AppConfig} from './config/app.config';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { TruncatePipe } from 'angular2-truncate';
     HttpModule,
     AppRoutingModule 
   ],
-  providers: [],
+  providers: [
+    {provide: APP_CONFIG, useValue: AppConfig}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
