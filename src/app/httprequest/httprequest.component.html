@@ -3,7 +3,7 @@
   <div class="plan" *ngFor="let item of top">
     <h2 class="plan-title"><img src="{{item.topAlbumImage}}" style="width: 100%;"></h2>
     <ul class="plan-features">
-      <li><strong><a href="#">{{item.albumtitle | truncate : 20 : '....' }}</a></strong></li>
+      <li><strong><a href="#">{{item.albumtitle | truncate : 20 : '...' }}</a></strong></li>
       <li>{{item.artisttext}}</li>
     </ul>
   </div>
@@ -13,7 +13,7 @@
 <div class="plans">
   <div class="plan" *ngFor="let item of single">
     <ul class="plan-features">
-      <li><strong><a href="#">{{item.songtitle | truncate : 20 : '....' }}</a></strong></li>
+      <li><strong><a href="#">{{item.songtitle | truncate : 20 : '...' }}</a></strong></li>
       <li>{{item.artisttext | truncate : 20 : '....'}}</li>
     </ul>
   </div>
